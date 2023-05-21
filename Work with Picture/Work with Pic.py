@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread("Work with Pic\Akane K.jpg")
+img = cv2.imread("Akane K.jpg")
 
 def getResolution():
     print(img.shape) #* <-- получаем разрешение фото. На выходе получаем кортеж из 3-х значений (высота,ширина,к-во слоев).
@@ -32,6 +32,8 @@ def findAngles(img):
     img = cv2.Canny(grayImg,92,92) #* Определение контуров. Чем больше значение, тем больше деталей игнорируется.
     #matrix = np.ones((5,5),np.uint8)
     #img = cv2.dilate(img,matrix,iterations = 0) #* Увеличение "жирности" обводки, чем больше iterations, чем она жирнее.
+    img = cv2.resize(img,(img.shape[1]//2,img.shape[0]//2)) #* Сжатие серого изображения
     cv2.imshow("Angles",img)
     cv2.waitKey(0)
+
 findAngles(img)
