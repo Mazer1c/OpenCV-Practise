@@ -23,8 +23,28 @@ def colorPartOfImage():
 
 def createRectangle():
     image = np.zeros((400,500,3),dtype='uint8')
-    cv2.rectangle(image,(image.shape[1]//2,image.shape[0]//2),(100,100),(255,0,0),thickness = 1) #* Создание обводки по принципу:
-    #*     источник,коорды начала рисовки с правого нижнего угла,разрешение,цвет,толщина линий.  
+    cv2.rectangle(image,(0,50),(100,100),(255,0,0),thickness = 1) #! если надо именно ЗАЛИТЬ фигуру, то thickness = cv2.FILLED
+    #*     Создание обводки по принципу:
+    #*     источник,коорды верхнего левого угла,координты правого нижнего угла,цвет,толщина линий.  
     cv2.imshow("rectangle",image)
     cv2.waitKey(0)
-createRectangle()
+
+def createLine():
+    image = np.zeros((400,500,3),dtype='uint8')
+    cv2.line(image,(image.shape[1]//2,image.shape[0]//2),(0,0),(0,0,255),thickness=2)
+    cv2.imshow("rectangle",image)
+    cv2.waitKey(0)
+
+def createCircle():
+    image = np.zeros((400,400,3),dtype='uint8')
+    cv2.circle(image,(image.shape[1]//2,image.shape[0]//2),50,(100,0,0),thickness=1)
+             #* Источник, (координаты середины круга),радиус круга,цвет,толщина
+    cv2.imshow("Circle",image)
+    cv2.waitKey(0)
+
+def createText():
+    image = np.zeros((400,400,3),dtype='uint8')
+    cv2.putText(image,"Takaraima",(100,150),cv2.FONT_HERSHEY_COMPLEX,1,(250,0,0),thickness=1)
+    #* Источник, Текст,(смещ. по ширине, смещ. по высоте), шрифт, увеличение текст, цвет, толщина.
+    cv2.imshow("Text",image)
+    cv2.waitKey(0)
