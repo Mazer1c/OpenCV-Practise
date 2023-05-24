@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread("2)Work with Picture\Akane K.jpg")
+img = cv2.imread("Akane.jpg")
 
 def getResolution():
     print(img.shape) #* <-- получаем разрешение фото. На выходе получаем кортеж из 3-х значений (высота,ширина,к-во слоев).
@@ -36,4 +36,4 @@ def findAngles(img):
     cv2.imshow("Angles",img)
     cv2.waitKey(0)
 
-cutImage()
+pressImage()
